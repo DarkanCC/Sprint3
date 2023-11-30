@@ -25,7 +25,7 @@ public class Swagger2Config {
 
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Spring Boot REST API")
-                .description("Driver Management REST API")
+                .description("Clasificación de Socios REST API")
                 .contact(new Contact("Andrés Cardona y Diego Alejandro Castañeda", "https://youtu.be/dQw4w9WgXcQ?si=uRCJVti73oIdmyQu", "andres.cardona14@udea.educo"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")

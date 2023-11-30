@@ -1,7 +1,7 @@
 package co.udea.ssmu.api.controller;
 
+import co.udea.ssmu.api.exception.DriverNotFoundException;
 import co.udea.ssmu.api.exception.InvalidRating;
-import co.udea.ssmu.api.exception.ModelNotFoundException;
 import co.udea.ssmu.api.model.Conductor;
 import co.udea.ssmu.api.services.ConductorService;
 import io.swagger.annotations.Api;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/conductor")
 @CrossOrigin(origins = "*")
-@Api(value = "Sistema de manejo de conductores", description = "Operaciones con los conductores")
+@Api(value = "Sistema de manejo de conductores", description = "Operaciones sobre los conductores en la BD")
 public class ConductorController {
     @Autowired
     private ConductorService conductorService;
@@ -26,8 +26,10 @@ public class ConductorController {
     @PostMapping("/guardar")
     public String guardar(
             @RequestBody Conductor conductor) throws InvalidRating {
-        if (conductor.getPromedioCalificacion()>5) {
+        if (conductor.getPromedioCalificacion() > 5) {
             throw new InvalidRating("El promedio debe ser menor o igual a 5");
+        } else if (conductor.getPromedioCalificacion() < 0) {
+            throw new InvalidRating("El promedio debe ser mayor o igual a 0");
         }
         conductorService.guardar(conductor);
         return ("Se guardó el conductor con el ID " + conductor.getIdConductor());
@@ -35,7 +37,7 @@ public class ConductorController {
 
     @ApiOperation("Lista todos los conductores de la BD")
     @GetMapping("/listarTodos")
-    public Iterable<Conductor> listarConductores(){return conductorService.list();}
+    public Iterable<Conductor> listarConductores() { return conductorService.list(); }
 
     @ApiOperation("Listar un conductor mediante su id de conductor")
     @GetMapping("/listar/{id}")
@@ -44,7 +46,7 @@ public class ConductorController {
         if (conductor.isPresent()){
             return conductor.get();
         }
-        throw new ModelNotFoundException("Id de conductor invalida");
+        throw new DriverNotFoundException("No existe un conductor con ese ID");
     }
 
     @ApiOperation("Modificar datos de un conductor")

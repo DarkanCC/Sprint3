@@ -12,4 +12,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleDriverNotFoundException(DriverNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(InvalidRating.class)
+    public ResponseEntity<String> handleInvalidRating(InvalidRating ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }
