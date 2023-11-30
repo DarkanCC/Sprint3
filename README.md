@@ -1,3 +1,6 @@
+# Andrés Cardona Carmona
+# Diego Alejandro Castañeda Ossa
+
 # SSMU-API
 
 [Spring Boot](http://projects.spring.io/spring-boot/) application [3.1.2](https://spring.io/blog/2023/07/20/spring-boot-3-1-2-available-now)
