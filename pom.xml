@@ -11,10 +11,13 @@
     <groupId>co.udea</groupId>
     <artifactId>sprint3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sprint3</name>
+    <name>ssmu-api</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.organization>daco</sonar.organization>
+        <sonar.projectKey>Alejandro-XIII_back</sonar.projectKey>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -87,6 +90,12 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
         </dependency>
 
     </dependencies>
