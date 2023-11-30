@@ -8,10 +8,10 @@
         <version>2.4.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.udea</groupId>
-    <artifactId>lab3</artifactId>
+    <groupId>co.udea</groupId>
+    <artifactId>sprint3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lab3</name>
+    <name>sprint3</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
