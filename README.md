@@ -22,8 +22,8 @@
 
 Para construir y ejecutar la aplicación necesita:
 
-- [JDK 20](https://jdk.java.net/20/)
-- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- [JDK 11](https://jdk.java.net/21/)
+- [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
 
 ## Ejecutando la aplicación localmente
 
