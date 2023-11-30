@@ -16,9 +16,21 @@ public interface IConductorDAO extends CrudRepository<Conductor,Integer> {
     @Query("FROM Conductor c WHERE c.promedioCalificacion = :promedio")
     public List<Conductor> findByPromedioCalificacionGreaterThan(@Param("promedio") float promedio);
 
+    @Query("FROM Conductor c WHERE c.promedioCalificacion <= :calificacion")
+    public List<Conductor> findByMaxCalificacion(@Param("calificacion") float calificacion);
+
+    @Query("FROM Conductor c WHERE c.promedioCalificacion >= :calificacion")
+    public List<Conductor> findByMinCalificacion(@Param("calificacion") float calificacion);
+
     @Query("FROM Conductor c WHERE c.nroAmonestaciones <= :amonestaciones")
     public List<Conductor> findByMaxAmonestaciones(@Param("amonestaciones") int amonestaciones);
 
     @Query("FROM Conductor c WHERE c.nroAmonestaciones >= :amonestaciones")
     public List<Conductor> findByMinAmonestaciones(@Param("amonestaciones") int amonestaciones);
+
+    @Query("FROM Conductor c WHERE c.nroFelicitaciones <= :felicitaciones")
+    public List<Conductor> findByMaxFelicitaciones(@Param("felicitaciones") int felicitaciones);
+
+    @Query("FROM Conductor c WHERE c.nroFelicitaciones >= :felicitaciones")
+    public List<Conductor> findByMinFelicitaciones(@Param("felicitaciones") int felicitaciones);
 }

@@ -40,11 +40,25 @@ public class ConductorService {
         } else throw new DriverNotFoundException("No hay conductores de " + ciudad);
     }
 
-    public List<Conductor> clasificarConductoresPorPromedio(int promedio) throws DriverNotFoundException {
+    public List<Conductor> clasificarConductoresPorPromedio(float promedio) throws DriverNotFoundException {
         List<Conductor> conductores = dao.findByPromedioCalificacionGreaterThan(promedio);
-        if (conductores.size()>0) {
+        if (!conductores.isEmpty()) {
             return conductores;
         } else throw new DriverNotFoundException("No hay conductores con promedio igual a " + promedio);
+    }
+
+    public List<Conductor> clasificarPorMaxCalificacion(float calificacion) throws DriverNotFoundException {
+        List<Conductor> conductores = dao.findByMaxCalificacion(calificacion);
+        if (!conductores.isEmpty()) {
+            return conductores;
+        } else throw new DriverNotFoundException("No hay conductores con menos de " + calificacion + " de calificación");
+    }
+
+    public List<Conductor> clasificarPorMinCalificacion(float calificacion) throws DriverNotFoundException {
+        List<Conductor> conductores = dao.findByMinCalificacion(calificacion);
+        if (!conductores.isEmpty()) {
+            return conductores;
+        } else throw new DriverNotFoundException("No hay conductores con más de " + calificacion + " de calificación");
     }
 
     public List<Conductor> clasificarPorMaxAmonestaciones(int amonestaciones) throws DriverNotFoundException {
@@ -59,5 +73,19 @@ public class ConductorService {
         if (!conductores.isEmpty()) {
             return conductores;
         } else throw new DriverNotFoundException("No hay conductores con más de " + amonestaciones + " amonestaciones");
+    }
+
+    public List<Conductor> clasificarPorMaxFelicitaciones(int felicitaciones) throws DriverNotFoundException {
+        List<Conductor> conductores = dao.findByMaxFelicitaciones(felicitaciones);
+        if (!conductores.isEmpty()) {
+            return conductores;
+        } else throw new DriverNotFoundException("No hay conductores con menos de " + felicitaciones + " felicitaciones");
+    }
+
+    public List<Conductor> clasificarPorMinFelicitaciones(int felicitaciones) throws DriverNotFoundException {
+        List<Conductor> conductores = dao.findByMinFelicitaciones(felicitaciones);
+        if (!conductores.isEmpty()) {
+            return conductores;
+        } else throw new DriverNotFoundException("No hay conductores con más de " + felicitaciones + " felicitaciones");
     }
 }

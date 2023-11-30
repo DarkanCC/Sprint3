@@ -68,9 +68,23 @@ public class ConductorController {
 
     @ApiOperation("Mostrar conductores por promedio de calificación")
     @GetMapping("/clasificarPorPromedio/{promedio}")
-    public ResponseEntity<List<Conductor>> clasificarConductoresPorPromedio(@PathVariable("promedio") int promedio) {
+    public ResponseEntity<List<Conductor>> clasificarConductoresPorPromedio(@PathVariable("promedio") float promedio) {
         List<Conductor> list = conductorService.clasificarConductoresPorPromedio(promedio);
         return new ResponseEntity<List<Conductor>>(list, HttpStatus.ACCEPTED);
+    }
+
+    @ApiOperation("Mostrar conductores con un número máximo de calificación")
+    @GetMapping("/porMaxCalificacion/{calificacion}")
+    public ResponseEntity<List<Conductor>> clasificarPorMaxCalificacion(@PathVariable("calificacion") float calificacion) {
+        List<Conductor> conductores = conductorService.clasificarPorMaxCalificacion(calificacion);
+        return new ResponseEntity<List<Conductor>>(conductores, HttpStatus.ACCEPTED);
+    }
+
+    @ApiOperation("Mostrar conductores con un número mínimo de calificación")
+    @GetMapping("/porMinCalificacion/{calificacion}")
+    public ResponseEntity<List<Conductor>> clasificarPorMinCalificacion(@PathVariable("calificacion") float calificacion) {
+        List<Conductor> conductores = conductorService.clasificarPorMinCalificacion(calificacion);
+        return new ResponseEntity<List<Conductor>>(conductores, HttpStatus.ACCEPTED);
     }
 
     @ApiOperation("Mostrar conductores con un número máximo de amonestaciones")
@@ -84,6 +98,20 @@ public class ConductorController {
     @GetMapping("/porMinAmonestaciones/{amonestaciones}")
     public ResponseEntity<List<Conductor>> clasificarPorMinAmonestaciones(@PathVariable("amonestaciones") int amonestaciones) {
         List<Conductor> conductores = conductorService.clasificarPorMinAmonestaciones(amonestaciones);
+        return new ResponseEntity<List<Conductor>>(conductores, HttpStatus.ACCEPTED);
+    }
+
+    @ApiOperation("Mostrar conductores con un número máximo de felicitaciones")
+    @GetMapping("/porMaxFelicitaciones/{felicitaciones}")
+    public ResponseEntity<List<Conductor>> clasificarPorMaxFelicitaciones(@PathVariable("felicitaciones") int felicitaciones) {
+        List<Conductor> conductores = conductorService.clasificarPorMaxFelicitaciones(felicitaciones);
+        return new ResponseEntity<List<Conductor>>(conductores, HttpStatus.ACCEPTED);
+    }
+
+    @ApiOperation("Mostrar conductores con un número mínimo de felicitaciones")
+    @GetMapping("/porMinFelicitaciones/{felicitaciones}")
+    public ResponseEntity<List<Conductor>> clasificarPorMinFelicitaciones(@PathVariable("felicitaciones") int felicitaciones) {
+        List<Conductor> conductores = conductorService.clasificarPorMinFelicitaciones(felicitaciones);
         return new ResponseEntity<List<Conductor>>(conductores, HttpStatus.ACCEPTED);
     }
 }
