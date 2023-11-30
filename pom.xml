@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>co.udea</groupId>
-    <artifactId>sprint3</artifactId>
+    <artifactId>ssmu-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ssmu-api</name>
     <description>Demo project for Spring Boot</description>
